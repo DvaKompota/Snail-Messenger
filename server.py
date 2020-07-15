@@ -3,30 +3,21 @@ from datetime import datetime
 import time
 
 app = Flask(__name__)
-messages = [
-    {'name': 'Jack', 'time': time.time(), 'text': '123'},
-    {'name': 'Jack', 'time': time.time(), 'text': '1234'},
-]
-users = {
-    'Jack': '12345'
-}
+messages = []
+users = {}
 
 
 @app.route("/")
 def hello_view():
-    return 'Hello, World! <a href="/status">Статус</a>'
+    return 'Snail Messenger 1.0 Server <a href="/status">Click here to check status</a>'
 
 
 @app.route("/status")
 def status_view():
     return {
         'status': True,
-        'name': 'ABC',
-        'time0': datetime.now(),
-        'time1': datetime.now().isoformat(),
-        'time2': datetime.now().strftime('Hi %Y/%m/%d %H:%M:%S'),
-        'time3': time.time(),
-        'time4': time.asctime()
+        'name': 'Snail Messenger',
+        'time': datetime.now().strftime('%Y/%m/%d %H:%M:%S'),
     }
 
 
